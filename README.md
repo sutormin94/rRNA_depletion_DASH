@@ -86,9 +86,9 @@ Shell script that performes QC of the reads (fastQC), then it alignes forward re
 
 ## Dependencies 
 
-factqc 
-bwa mem 
-samtools 
+* factqc 
+* bwa mem 
+* samtools 
 
 ## Usage
 
