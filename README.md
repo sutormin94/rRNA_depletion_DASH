@@ -92,9 +92,9 @@ Shell script that performes QC of the reads (fastQC), then it alignes forward re
 
 ## Usage
 
-With PWD variable, specify path to the working directory, which contains /Raw_data folder with raw reads files in fq.gz format.
-With Ref_genome variable, specify path to the reference genome in fasta/fna format.
-With fastqc, bwa, and samtools variables specify pathes to corresponding executables.
+* With PWD variable, specify path to the working directory, which contains /Raw_data folder with raw reads files in fq.gz format.
+* With Ref_genome variable, specify path to the reference genome in fasta/fna format.
+* With fastqc, bwa, and samtools variables specify pathes to corresponding executables.
 
 ## Output
 
@@ -112,12 +112,12 @@ Python 3.x
 
 ## Usage
 
-With PWD variable, specify path to the working directory.
-With filein_path_dict variable, specify path(es) to the input bed file(s) to be converted to wig.
-With fileout_path_dict variable, specify path(es) to the output wig file(s).
-With name_dict variable, specify IDs for wig tracks (will appear as track names in IGV browser).
-With Chromosome_name variable, specify chromosome name for wig file. It mist match chromosome name in the reference fasta file. Not needed if Auto_or_manual=0.
-With Auto_or_manual variable, specify the mode of chromosome name writing: 0 - auto detection from bed file provided, 1 - manualy provided by user in Chromosome_name variable.
+* With PWD variable, specify path to the working directory.
+* With filein_path_dict variable, specify path(es) to the input bed file(s) to be converted to wig.
+* With fileout_path_dict variable, specify path(es) to the output wig file(s).
+* With name_dict variable, specify IDs for wig tracks (will appear as track names in IGV browser).
+* With Chromosome_name variable, specify chromosome name for wig file. It mist match chromosome name in the reference fasta file. Not needed if Auto_or_manual=0.
+* With Auto_or_manual variable, specify the mode of chromosome name writing: 0 - auto detection from bed file provided, 1 - manualy provided by user in Chromosome_name variable.
 
 ## Output
 
@@ -127,7 +127,7 @@ Wig files in a directory specified in the fileout_path_dict. Wig files can be vi
 # Select_genomic_region.py
 Select genomic region of interest.
 
-Select genomic region to which sgRNAs to be designed.
+Selects genomic region to which sgRNAs to be designed.
 Normalizes coverage depth by total coverage depth and averages normalized cov depth between replicates provided.
 Outputs normalized avreged cov depth for a region of interest (ROI).
 
@@ -141,11 +141,11 @@ Python 3.x including packages:
 
 ## Usage
 
-With Dict_of_cov_depth variable, specify path(es) to wig file(s) you want to normalize, average, and extract coverage depth profile for ROI from.
-With Ref_gen_path variable, specify path to the reference genome in fasta/fna format.
-With Coordinates_ar variable, specify genomic coordinates [start, stop] for ROI. If targeting rRNA operon, choose one in + orientation.
-With Output_path variable, specify path to where output files will be generated.
-With Dataset name variable, specify name of ROI (it will appear in generated fasta and wig files).
+* With Dict_of_cov_depth variable, specify path(es) to wig file(s) you want to normalize, average, and extract coverage depth profile for ROI from.
+* With Ref_gen_path variable, specify path to the reference genome in fasta/fna format.
+* With Coordinates_ar variable, specify genomic coordinates [start, stop] for ROI. If targeting rRNA operon, choose one in + orientation.
+* With Output_path variable, specify path to where output files will be generated.
+* With Dataset name variable, specify name of ROI (it will appear in generated fasta and wig files).
 
 ## Output
 
@@ -170,13 +170,13 @@ Python 3.x including packages:
 
 ## Usage
 
-With Cov_depth_profile variable, specify path to coverage depth profile (prepared by the Select_genomic_ragion.py script).
-With Ref_seq_path variable, specify path to a sequence of ROI (prepared by the Select_genomic_ragion.py script).
-With Guides_compend_path variable, specify path to guides csv file (prepared by the design_grnas.py script).
-With Handle_seq variable, specify nucleotide sequence of guide handle (exactly as was provided in design_grnas.py script).
-With Output_path variable, specify path to where output files will be generated.
-With Total_num_guides variable, specify a desired number of guides after rarefying.
-With Dataset_name variable, specify a dataset name.
+* With Cov_depth_profile variable, specify path to coverage depth profile (prepared by the Select_genomic_ragion.py script).
+* With Ref_seq_path variable, specify path to a sequence of ROI (prepared by the Select_genomic_ragion.py script).
+* With Guides_compend_path variable, specify path to guides csv file (prepared by the design_grnas.py script).
+* With Handle_seq variable, specify nucleotide sequence of guide handle (exactly as was provided in design_grnas.py script).
+* With Output_path variable, specify path to where output files will be generated.
+* With Total_num_guides variable, specify a desired number of guides after rarefying.
+* With Dataset_name variable, specify a dataset name.
 
 ## Output
 
