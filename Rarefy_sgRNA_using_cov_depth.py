@@ -22,25 +22,25 @@ import numpy as np
 #################
 
 # Path to coverage depth profile (prepared by the Select_genomic_ragion.py script).
-Cov_depth_profile="C:\\Users\dsutormi\D_Sutormin\Science\\rRNA_depletion_project\Guides_design_DASH\PAO1\Targeting_region\P3_rRNA.wig"
+Cov_depth_profile="C:\\Users\dsutormi\D_Sutormin\Science\\rRNA_depletion_project\Guides_design_DASH\E_coli\Targeting_region\C2_subset_rRNA.wig"
 
 # Path to a sequence of ROI (prepared by the Select_genomic_ragion.py script).
-Ref_seq_path="C:\\Users\dsutormi\D_Sutormin\Science\\rRNA_depletion_project\Guides_design_DASH\PAO1\Targeting_region\P3_rRNA.fasta"
+Ref_seq_path="C:\\Users\dsutormi\D_Sutormin\Science\\rRNA_depletion_project\Guides_design_DASH\E_coli\Targeting_region\C2_subset_rRNA.fasta"
 
 # Path to guides compendium (prepared by the design_grnas.py script).
-Guides_compend_path="C:\\Users\dsutormi\D_Sutormin\Science\\rRNA_depletion_project\Guides_design_DASH\PAO1\oligos.csv"
+Guides_compend_path="C:\\Users\dsutormi\D_Sutormin\Science\\rRNA_depletion_project\Guides_design_DASH\E_coli\oligos_Quoc.csv"
 
 # Handle sequence (exactly as was provided in design_grnas.py script).
 Handle_seq="GTTTTAGAGCTAGA"
 
 # Output_path.
-Output_path="C:\\Users\dsutormi\D_Sutormin\Science\\rRNA_depletion_project\Guides_design_DASH\PAO1\\"
+Output_path="C:\\Users\dsutormi\D_Sutormin\Science\\rRNA_depletion_project\Guides_design_DASH\E_coli\\"
 
 # Desired number of guides.
 Total_num_guides=300
 
 # Dataset name.
-Dataset_name="PAO1_weighted"
+Dataset_name="E_coli_weighted"
 
 def read_wig(wig_path):
     
