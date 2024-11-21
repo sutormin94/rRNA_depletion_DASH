@@ -149,8 +149,7 @@ def read_extract_seq(ref_gen_path, coordinates_ar, chromosome_name_spec, dataset
     
     return
 
-    
-    
+
 def wrapper_function(dict_of_cov_depth, ref_gen_path, coordinates_ar, chromosome_name_spec, dataset_name, output_path):
     
     # Read, normalize, and average cov depth. Return norm av cov depth for ROI.
