@@ -183,7 +183,7 @@ if annotation_file is False:
 				gff_file.write(line)
 	gff_file.seek(0)
 
-regex_rrna = re.compile('\d*S') #matches rRNA name (5S, 16S, 23S)
+regex_rrna = re.compile("5S|16S|23S") #matches rRNA name (5S, 16S, 23S)
 
 PAM_length = len(PAM)
 
@@ -235,27 +235,30 @@ for record in genome:
 if annotation_file is False: #if a gff file is in the \annotations folder
 	for line in gff_file:
 		if line[0] != "#":
-			linelist = line.split("\t")
+			linelist = line.rstrip().split("\t")
 			# QUOC HAD TO FIX THIS!
-			if linelist[2] == "ncRNA_gene":
-				try:
-					ID = regex_rrna.findall(linelist[8])[0]
-					if ID in rRNA_genes.keys():
-						print(linelist[8])
-						start = int(linelist[3])
-						end = int(linelist[4])
-						strand = linelist[6]
-						scaffold = linelist[0]
-						positions.setdefault(scaffold,[]).append([start,end])
-						if strand == "-":
-							seq = revcomp(genome_seqs[scaffold][start:end])
-						else:
-							seq = str(genome_seqs[scaffold][start:end])
-						rRNA_genes[ID].append(seq)
-						gene_name = re.findall('ID=gene:(.*?);', linelist[8])[0]
-						rRNA_names[ID].append(gene_name)
-				except:
-					pass
+			if (len(linelist))>2:
+				if linelist[2] == "rRNA":
+					try:
+						ID = regex_rrna.findall(linelist[8])[0]
+						if ID in rRNA_genes.keys():
+							print(f'This string was found as rRNA annotation, check: {linelist[8]}')
+							start = int(linelist[3])
+							end = int(linelist[4])
+							strand = linelist[6]
+							scaffold = linelist[0]
+							positions.setdefault(scaffold,[]).append([start,end])
+							if strand == "-":
+								seq = revcomp(genome_seqs[scaffold][start:end])
+							else:
+								seq = str(genome_seqs[scaffold][start:end])
+							rRNA_genes[ID].append(seq)
+							gene_name = re.findall('ID=(.*?);', linelist[8])[0]
+							rRNA_names[ID].append(gene_name)
+					except:
+						pass
+					
+	
 else: #if a custom rRNA annotation was provided
 		annotation = open("{0}".format(annotation_file), "r")
 		reader = csv.reader(annotation, delimiter = "\t")
@@ -286,6 +289,12 @@ else: #if a custom rRNA annotation was provided
 				"scaffold names same as in the fasta files etc.; please check "
 				"the README file part about this)")
 				sys.exit()
+				
+
+#Count numbers of rRNA genes and sequences retrieved.				
+for rRNA_name in rRNA_names.keys():
+	print(f'Found {len(rRNA_names[rRNA_name])} {rRNA_name} rRNA genes.')
+	print(f'Retrieved {len(rRNA_genes[rRNA_name])} {rRNA_name} rRNA gene sequences.')
 
 #find gRNA spacer sequences in the rRNA genes and filter for GC content:
 invalid_GC = [] #list of guides discarded because of GC content
