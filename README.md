@@ -3,6 +3,7 @@
  
 # design_guides.py
 A description was taken from original design_guides.py README. See the original script here: https://github.com/gprezza/DASH_rRNA_depletion
+
 Python tool to design sgRNA pools targeting the rRNA genes, as described in [this paper](https://rnajournal.cshlp.org/content/26/8/1069.long) (PMID: 32345633). 
 
 ## Dependencies
